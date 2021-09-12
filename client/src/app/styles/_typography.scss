@@ -1,0 +1,24 @@
+.paragraph {
+  font-size: $default-font-size;
+}
+
+.heading-primary {
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 6rem;
+  text-transform: uppercase;
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}

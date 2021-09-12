@@ -1,0 +1,46 @@
+﻿.text-purple {
+    color: #7C4DFF !important;
+}
+
+a.text-purple:hover, a.text-purple:focus {
+    color: #7C4DFF !important;
+}
+
+.text-pink {
+    color: #E040FB !important;
+}
+
+a.text-pink:hover, a.text-pink:focus {
+    color: #E040FB !important;
+}
+
+/* extra badge colors */
+.badge-purple {
+    color: #fff;
+    background-color: #651FFF;
+}
+
+a.badge-purple:hover, a.badge-purple:focus {
+    color: #fff;
+    background-color: #6200EA;
+}
+
+a.badge-purple:focus, a.badge-purple.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(74, 20, 140, 0.5);
+}
+
+.badge-pink {
+    color: #fff;
+    background-color: #E040FB;
+}
+
+a.badge-pink:hover, a.badge-pink:focus {
+    color: #fff;
+    background-color: #EA80FC;
+}
+
+a.badge-pink:focus, a.badge-pink.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(245, 0, 87, 0.5);
+}

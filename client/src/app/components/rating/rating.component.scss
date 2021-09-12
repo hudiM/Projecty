@@ -1,0 +1,18 @@
+.rating {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 12rem;
+}
+
+.star {
+  cursor: pointer;
+  color: #ffee58;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

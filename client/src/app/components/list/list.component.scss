@@ -1,0 +1,64 @@
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+}
+
+.feature {
+  background-color: $color-grey-800;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.input {
+  &:focus {
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+
+.btn-custom {
+  min-width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+
+  // Change for the <button> element
+  border: none;
+  cursor: pointer;
+  // Change for the <div> element
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:hover {
+    color: $color-error;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-custom-delete:hover {
+  color: $color-error;
+}
+
+.btn-custom-save:hover {
+  color: $color-ok;
+}
