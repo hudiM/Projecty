@@ -12,6 +12,9 @@ namespace Projecty
 
         public DbSet<Feature> Features { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Label> Labels { get; set; }
+        public DbSet<LabelCategory> LabelCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +22,15 @@ namespace Projecty
                 .Property(f => f.Id)
                 .ValueGeneratedOnAdd();
             modelBuilder.Entity<Task>()
+                .Property(f => f.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Tag>()
+                .Property(f => f.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Label>()
+                .Property(f => f.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<LabelCategory>()
                 .Property(f => f.Id)
                 .ValueGeneratedOnAdd();
         }

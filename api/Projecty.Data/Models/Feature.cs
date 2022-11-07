@@ -6,6 +6,8 @@ namespace Projecty.Data.Models
     {
         public List<Task> Tasks { get; set; }
 
+        public List<Tag> Tags { get; set; }
+
         public int Rating { get; set; }
     }
 }

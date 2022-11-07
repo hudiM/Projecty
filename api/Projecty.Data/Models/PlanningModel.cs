@@ -1,6 +1,4 @@
-﻿using Projecty.Data.Enums;
-
-namespace Projecty.Data.Models
+﻿namespace Projecty.Data.Models
 {
     public class PlanningModel
     {
@@ -8,6 +6,6 @@ namespace Projecty.Data.Models
 
         public string Title { get; set; }
 
-        public Status Status { get; set; }
+        public string Status { get; set; }
     }
 }
