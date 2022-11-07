@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  api: 'http://hudim.ddns.net:8090/api/',
+  api: 'http://localhost:8090/api/',
   //api: 'http://localhost:63799/api/',
   production: false,
 };
