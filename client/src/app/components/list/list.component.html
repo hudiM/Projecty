@@ -11,7 +11,7 @@
     *ngFor="let feature of features | async">
     <input class="input" [(ngModel)]="feature.title" />
     <select class="select" [(ngModel)]="feature.status">
-      <option [value]="i" *ngFor="let status of statusKeys(); let i = index">
+      <option [ngValue]="i" *ngFor="let status of statusKeys(); let i = index">
         {{ status }}
       </option>
     </select>
