@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
+import { Status } from 'src/app/models/enums/statusEnum';
 import { Feature } from 'src/app/models/listModels';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -12,6 +13,7 @@ import { TaskService } from 'src/app/services/task.service';
 export class ListComponent implements OnInit {
   features: BehaviorSubject<Feature[]>;
   test: string = '';
+  statusEnum = Status;
 
   constructor(private taskService: TaskService, private toastr: ToastrService) {
     this.features = new BehaviorSubject([] as Feature[]);
@@ -57,5 +59,10 @@ export class ListComponent implements OnInit {
       );
       this.toastr.success('Done');
     }
+  }
+
+  statusKeys(): Array<string> {
+    let keys = Object.keys(this.statusEnum);
+    return keys.slice(keys.length / 2);
   }
 }

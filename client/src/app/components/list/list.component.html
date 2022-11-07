@@ -8,22 +8,19 @@
   <div class="features"></div>
   <div
     class="feature margin-top-small"
-    *ngFor="let feature of features | async"
-  >
+    *ngFor="let feature of features | async">
     <input class="input" [(ngModel)]="feature.title" />
-    <input
-      class="input margin-left-small"
-      type="number"
-      [(ngModel)]="feature.status"
-    />
+    <select class="select" [(ngModel)]="feature.status">
+      <option [value]="i" *ngFor="let status of statusKeys(); let i = index">
+        {{ status }}
+      </option>
+    </select>
     <app-rating
       class="margin-left-small"
-      [(rating)]="feature.rating"
-    ></app-rating>
+      [(rating)]="feature.rating"></app-rating>
     <div
       class="btn-custom btn-custom-save margin-left-small"
-      (click)="save(feature)"
-    >
+      (click)="save(feature)">
       <div class="material-icons">save</div>
     </div>
     <div class="btn-custom btn-custom-delete" (click)="remove(feature)">
