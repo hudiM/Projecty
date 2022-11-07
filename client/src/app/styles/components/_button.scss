@@ -1,9 +1,11 @@
 .btn {
+  cursor: pointer;
+  border: none;
+
   &,
   &:link,
   &:visited {
     display: flex;
-    align-self: flex-start;
     justify-content: center;
     align-items: center;
     font-size: $default-font-size;
@@ -12,14 +14,8 @@
     padding: 1.5rem 4rem;
     transition: all 0.2s;
     position: relative;
-
-    // Change for the <button> element
     border: none;
     cursor: pointer;
-    // Change for the <div> element
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
 
@@ -169,4 +165,8 @@
     box-shadow: 0 0.5rem 1rem rgba($color-grey-900, 0.15);
     transform: translateY(0);
   }
+}
+
+button {
+  background-color: transparent;
 }

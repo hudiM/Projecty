@@ -15,6 +15,7 @@ namespace Projecty
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Label> Labels { get; set; }
         public DbSet<LabelCategory> LabelCategories { get; set; }
+        public DbSet<Status> Statuses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

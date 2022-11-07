@@ -1,6 +1,6 @@
 ﻿namespace Projecty.Data.Models
 {
-    public class PlanningModel
+    public class PlanningModelDto
     {
         public int Id { get; set; }
 

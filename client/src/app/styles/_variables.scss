@@ -31,6 +31,54 @@ $color-shadow-default: rgba(#999999, 0.75);
 $color-shadow-light: rgba(#999999, 0.3);
 $color-shadow-heavy: rgba(#999999, 0.9);
 
+// COLOR CLASS GENERATION
+$colors: (
+  "primary": $color-primary,
+  "accent": $color-accent,
+  "default": $color-default,
+  "primary-light": $color-primary-light,
+  "primary-dark": $color-primary-dark,
+  "accent-light": $color-accent-light,
+  "accent-dark": $color-accent-dark,
+  "info": $color-info,
+  "ok": $color-ok,
+  "warning": $color-warning,
+  "error": $color-error,
+  "error-light": $color-error-light,
+  "white-alternative": $color-white-alternative,
+  "grey-100": $color-grey-100,
+  "grey-200": $color-grey-200,
+  "grey-300": $color-grey-300,
+  "grey-400": $color-grey-400,
+  "grey-500": $color-grey-500,
+  "grey-600": $color-grey-600,
+  "grey-700": $color-grey-700,
+  "grey-800": $color-grey-800,
+  "grey-900": $color-grey-900,
+  "black": $color-black,
+);
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background: #{$color};
+  }
+
+  .bg-#{$name}_hover:hover {
+    background: #{$color};
+  }
+
+  .color-#{$name} {
+    color: #{$color};
+  }
+
+  .color-#{$name}_hover:hover {
+    color: #{$color};
+  }
+}
+
+// SPACING
+$space-scales: 0, 0.4, 0.8, 1.6, 2.4, 3.2, 4, 5.6, 8;
+
 // FONT
 $default-font-size: 1.6rem;
 
@@ -40,4 +88,10 @@ $bp-largest: 75em; // 1200px
 $bp-large: 68.75em; // 1100px
 $bp-medium: 56.25em; // 900px
 $bp-small: 37.5em; // 600px
-$bp-smallest: 31.25em; // 500px
+
+$breakpoints: (
+  "sm": $bp-small,
+  "md": $bp-medium,
+  "lg": $bp-large,
+  "xl": $bp-largest,
+);

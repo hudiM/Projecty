@@ -1,0 +1,15 @@
+<div class="flex flex-column">
+  <div class="flex">
+    <div class="btn btn-icon btn-primary" (click)="addFeature()">
+      <div class="material-icons">add</div>
+    </div>
+  </div>
+
+  <feature
+    [feature]="feature"
+    [statuses]="statuses"
+    (deleted)="remove(feature)"
+    (saved)="save(feature)"
+    *ngFor="let feature of features | async">
+  </feature>
+</div>

@@ -2,7 +2,7 @@
 
 namespace Projecty.Data.Models
 {
-    public class LabelCategory
+    public class LabelCategoryDto
     {
         public int Id { get; set; }
 

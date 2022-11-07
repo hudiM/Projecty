@@ -1,0 +1,31 @@
+<div
+  *ngIf="editMode"
+  class="flex align-items-center justify-content-between bg-grey-800 p-1 mt-3">
+  <input class="input" [(ngModel)]="feature.title" />
+  <select class="select" [(ngModel)]="feature.status">
+    <option [ngValue]="status" *ngFor="let status of statuses">
+      {{ status.name }}
+    </option>
+  </select>
+  <button class="btn btn-icon color-ok ml-2" (click)="save()">
+    <i class="material-icons">save</i>
+  </button>
+  <button class="btn btn-icon color-error" (click)="deleted.emit(true)">
+    <i class="material-icons">delete</i>
+  </button>
+  <button class="btn btn-icon color-grey-300" (click)="cancel()">
+    <i class="material-icons">cancel</i>
+  </button>
+</div>
+
+<div
+  *ngIf="!editMode"
+  class="flex align-items-center justify-content-between bg-grey-800 py-2 px-3 mt-3">
+  <span>{{ feature.title }}</span>
+  <span>{{ feature.status.name }}</span>
+  <button
+    class="btn btn-icon color-grey-300 ml-2"
+    (click)="editMode = !editMode">
+    <i class="material-icons">edit</i>
+  </button>
+</div>

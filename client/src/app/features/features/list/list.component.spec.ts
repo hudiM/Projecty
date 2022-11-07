@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TaskService } from 'src/app/services/task.service';
 
-import { ListComponent } from './list.component';
+import { FeatureListComponent } from './list.component';
 
 describe('ListComponent', () => {
-  let component: ListComponent;
-  let fixture: ComponentFixture<ListComponent>;
+  let component: FeatureListComponent;
+  let fixture: ComponentFixture<FeatureListComponent>;
   let httpClientSpy: { get: jasmine.Spy };
   let taskServiceSpy: { getFeatures: jasmine.Spy; getPromise: jasmine.Spy };
 
@@ -17,7 +17,7 @@ describe('ListComponent', () => {
       'getPromise',
     ]);
     await TestBed.configureTestingModule({
-      declarations: [ListComponent],
+      declarations: [FeatureListComponent],
       providers: [
         { provide: HttpClient, useValue: httpClientSpy },
         { provide: TaskService, useValue: taskServiceSpy },
@@ -26,7 +26,7 @@ describe('ListComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListComponent);
+    fixture = TestBed.createComponent(FeatureListComponent);
     component = fixture.componentInstance;
   });
 

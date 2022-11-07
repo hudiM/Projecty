@@ -24,14 +24,22 @@ namespace Projecty.Pages.Api
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Feature>>> GetFeatures()
         {
-            return await _context.Features.ToListAsync();
+            return await _context.Features
+                .Include(feature => feature.Status)
+                .Include(feature => feature.Tasks)
+                .Include(feature => feature.Tags)
+                .ToListAsync();
         }
 
         // GET: api/Features/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Feature>> GetFeature(int id)
         {
-            var feature = await _context.Features.FindAsync(id);
+            var feature = await _context.Features
+                .Include(feature => feature.Status)
+                .Include(feature => feature.Tasks)
+                .Include(feature => feature.Tags)
+                .FirstOrDefaultAsync(feature => feature.Id == id);
 
             if (feature == null)
             {

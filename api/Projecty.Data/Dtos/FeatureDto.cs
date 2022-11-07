@@ -2,7 +2,7 @@
 
 namespace Projecty.Data.Models
 {
-    public class Feature : PlanningModel
+    public class FeatureDto : PlanningModelDto
     {
         public List<int> TaskIds { get; set; }
         public List<Task> Tasks { get; set; }

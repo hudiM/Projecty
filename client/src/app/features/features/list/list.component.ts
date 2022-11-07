@@ -1,33 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
-import { Status } from 'src/app/models/enums/statusEnum';
-import { Feature } from 'src/app/models/listModels';
-import { TaskService } from 'src/app/services/task.service';
+import { Feature, Status } from 'src/app/models/listModels';
+import { StatusService } from 'src/app/services/api/status.service';
+import { TaskService } from 'src/app/services/api/task.service';
 
 @Component({
-  selector: 'app-list',
+  selector: 'feature-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class FeatureListComponent implements OnInit {
   features: BehaviorSubject<Feature[]>;
   test: string = '';
-  statusEnum = Status;
+  statuses: Status[] = [];
 
-  constructor(private taskService: TaskService, private toastr: ToastrService) {
+  constructor(
+    private statusService: StatusService,
+    private taskService: TaskService,
+    private toastr: ToastrService
+  ) {
     this.features = new BehaviorSubject([] as Feature[]);
     this.taskService.getFeatures().subscribe((features) => {
       this.features.next(features);
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getStatuses();
+  }
+
+  getStatuses() {
+    this.statusService.getStatuses().subscribe((response) => {
+      this.statuses = response;
+    });
+  }
 
   addFeature() {
     this.features.next([
       ...this.features.value,
-      { title: '', status: 0, tasks: [], rating: 0, isNew: true },
+      {
+        title: '',
+        tasks: [],
+        tags: [],
+        status: this.statuses[0],
+        rating: 0,
+        isNew: true,
+      },
     ]);
   }
 
@@ -59,10 +78,5 @@ export class ListComponent implements OnInit {
       );
       this.toastr.success('Done');
     }
-  }
-
-  statusKeys(): Array<string> {
-    let keys = Object.keys(this.statusEnum);
-    return keys.slice(keys.length / 2);
   }
 }

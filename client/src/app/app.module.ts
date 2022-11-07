@@ -8,11 +8,17 @@ import { SharedModule } from './modules/shared.module';
 import { MaterialModule } from './modules/material.module';
 
 import { AppComponent } from './components/app.component';
-import { ListComponent } from './components/list/list.component';
+import { FeatureListComponent } from './features/features/list/list.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { FeatureComponent } from './features/features/feature/feature.component';
 
 @NgModule({
-  declarations: [AppComponent, ListComponent, RatingComponent],
+  declarations: [
+    AppComponent,
+    FeatureListComponent,
+    RatingComponent,
+    FeatureComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
