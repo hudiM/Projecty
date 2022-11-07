@@ -8,7 +8,6 @@ namespace Projecty.Data.Models
 
         public string Name { get; set; }
 
-        public List<int> LabelIds { get; set; }
         public List<Label> Labels { get; set; }
     }
 }
