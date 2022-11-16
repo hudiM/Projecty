@@ -6,6 +6,7 @@
 
         public string Title { get; set; }
 
+        public virtual int StatusId { get; set; }
         public Status Status { get; set; }
     }
 }
