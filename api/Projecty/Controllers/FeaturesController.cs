@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 
+using AutoMapper;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +16,12 @@ namespace Projecty.Pages.Api
     public class FeaturesController : ControllerBase
     {
         private readonly DatabaseContext _context;
+        private readonly IMapper _mapper;
 
-        public FeaturesController(DatabaseContext context)
+        public FeaturesController(DatabaseContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Features
@@ -87,6 +91,7 @@ namespace Projecty.Pages.Api
         [HttpPost]
         public async Task<ActionResult<Feature>> PostFeature(Feature feature)
         {
+            feature.Status = null;
             _context.Features.Add(feature);
             await _context.SaveChangesAsync();
 
