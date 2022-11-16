@@ -1,0 +1,83 @@
+.grid {
+  display: grid;
+}
+
+.grid-flow-row {
+  grid-auto-flow: row;
+}
+.grid-flow-column {
+  grid-auto-flow: column;
+}
+.grid-flow-dense {
+  grid-auto-flow: dense;
+}
+
+$grid-object-amount: 25;
+
+@for $amount from 0 through $grid-object-amount {
+  // COLUMN / ROW AMOUNT
+  .grid-columns-#{$amount} {
+    grid-template-columns: repeat($amount, 1fr);
+  }
+
+  .grid-rows-#{$amount} {
+    grid-template-rows: repeat($amount, 1fr);
+  }
+
+  @each $key, $value in $breakpoints {
+    @media only screen and (min-width: #{$value}) {
+      .#{$key}\:grid-columns-#{$amount} {
+        grid-template-columns: repeat($amount, 1fr);
+      }
+
+      .#{$key}\:grid-rows-#{$amount} {
+        grid-template-rows: repeat($amount, 1fr);
+      }
+    }
+  }
+
+  // ITEM SPAN
+  .grid-column-span-#{$amount} {
+    grid-column: span $amount;
+  }
+
+  .grid-row-span-#{$amount} {
+    grid-row: span $amount;
+  }
+
+  @each $key, $value in $breakpoints {
+    @media only screen and (min-width: #{$value}) {
+      .#{$key}\:grid-column-span-#{$amount} {
+        grid-column: span $amount;
+      }
+
+      .#{$key}\:grid-row-span-#{$amount} {
+        grid-row: span $amount;
+      }
+    }
+  }
+}
+
+// GAP
+@each $space-amount in $space-scales {
+  $index: index($space-scales, $space-amount) - 1;
+
+  .grid-column-gap-#{$index} {
+    column-gap: #{$space-amount}rem;
+  }
+  .grid-row-gap-#{$index} {
+    row-gap: #{$space-amount}rem;
+  }
+
+  @each $key, $value in $breakpoints {
+    @media only screen and (min-width: #{$value}) {
+      .#{$key}\:grid-column-gap-#{$index} {
+        column-gap: #{$space-amount}rem;
+      }
+
+      .#{$key}\:grid-row-gap-#{$index} {
+        row-gap: #{$space-amount}rem;
+      }
+    }
+  }
+}

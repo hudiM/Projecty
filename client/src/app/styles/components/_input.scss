@@ -1,11 +1,11 @@
 .input {
-  font-size: 1.5rem;
+  font-size: $default-font-size;
   font-family: inherit;
   padding: 1.5rem 2rem;
   color: inherit;
   background-color: transparent;
   border: none;
-  border-bottom: 3px solid transparent;
+  border-bottom: 3px solid $color-grey-600;
   width: 90%;
   display: block;
   transition: all 0.3s;
@@ -17,11 +17,11 @@
   &:focus {
     outline: none;
     background-color: $color-grey-800;
-    border-bottom: 3px solid $color-primary;
+    border-bottom-color: $color-primary;
   }
 
   &:focus:invalid {
-    border-bottom: 3px solid $color-error;
+    border-bottom-color: $color-error;
   }
 
   &::-webkit-input-placeholder {

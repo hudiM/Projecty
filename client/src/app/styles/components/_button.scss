@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: $default-font-size;
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -150,7 +149,6 @@
     text-decoration: none;
     border-bottom: 1px solid $color-primary;
     padding: 3px;
-    font-size: $default-font-size;
     transition: all 0.2s;
   }
 

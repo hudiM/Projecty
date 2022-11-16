@@ -1,23 +1,42 @@
-$space-scales:0, 0.4, 0.8, 1.6, 2.4, 3.2, 4, 5.6, 8;
+$space-scales: 0, 0.5, 1, 1.5, 2, 2.5, 3, 4, 8;
 $padding-properties: (
-    '': 'padding',
-    't': 'padding-top',
-    'r': 'padding-right',
-    'l': 'padding-left',
-    'b': 'padding-bottom',
-    'x': ('padding-left','padding-right'),
-    'y': ('padding-top','padding-bottom')
+  "": "padding",
+  "t": "padding-top",
+  "r": "padding-right",
+  "l": "padding-left",
+  "b": "padding-bottom",
+  "x": (
+    "padding-left",
+    "padding-right",
+  ),
+  "y": (
+    "padding-top",
+    "padding-bottom",
+  ),
 );
 
 $margin-properties: (
-    '': 'margin',
-    't': 'margin-top',
-    'r': 'margin-right',
-    'l': 'margin-left',
-    'b': 'margin-bottom',
-    'x': ('margin-left','margin-right'),
-    'y': ('margin-top','margin-bottom')
+  "": "margin",
+  "t": "margin-top",
+  "r": "margin-right",
+  "l": "margin-left",
+  "b": "margin-bottom",
+  "x": (
+    "margin-left",
+    "margin-right",
+  ),
+  "y": (
+    "margin-top",
+    "margin-bottom",
+  ),
 );
 
-@include spacing-class('p', $padding-properties, $space-scales);
-@include spacing-class('m', $margin-properties, $space-scales, true, true, true);
+@include spacing-class("p", $padding-properties, $space-scales);
+@include spacing-class(
+  "m",
+  $margin-properties,
+  $space-scales,
+  true,
+  true,
+  true
+);
