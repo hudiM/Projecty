@@ -11,6 +11,7 @@ import { AppComponent } from './components/app.component';
 import { FeatureListComponent } from './features/features/list/list.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { FeatureComponent } from './features/features/feature/feature.component';
+import { SkeletonComponent } from './components/skeleton/skeleton.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FeatureComponent } from './features/features/feature/feature.component'
     FeatureListComponent,
     RatingComponent,
     FeatureComponent,
+    SkeletonComponent,
   ],
   imports: [
     BrowserModule,
