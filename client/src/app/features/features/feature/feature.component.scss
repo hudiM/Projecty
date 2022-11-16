@@ -1,0 +1,9 @@
+.feature {
+  margin-top: 3px;
+  display: grid;
+  grid-template-columns: 3fr 1fr minmax(13.2rem, max-content);
+
+  &-non-edit {
+    margin-bottom: 3px;
+  }
+}

@@ -14,6 +14,7 @@ export class FeatureListComponent implements OnInit {
   features: BehaviorSubject<Feature[]>;
   test: string = '';
   statuses: Status[] = [];
+  isLoading: boolean = true;
 
   constructor(
     private statusService: StatusService,
@@ -21,18 +22,24 @@ export class FeatureListComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.features = new BehaviorSubject([] as Feature[]);
-    this.taskService.getFeatures().subscribe((features) => {
-      this.features.next(features);
-    });
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.getStatuses();
   }
 
+  getFeatures() {
+    this.taskService.getFeatures().subscribe((features: Feature[]) => {
+      this.features.next(features);
+      this.isLoading = false;
+    });
+  }
+
   getStatuses() {
-    this.statusService.getStatuses().subscribe((response) => {
-      this.statuses = response;
+    this.statusService.getStatuses().subscribe((statuses: Status[]) => {
+      this.statuses = statuses;
+      this.getFeatures();
     });
   }
 
@@ -46,32 +53,54 @@ export class FeatureListComponent implements OnInit {
         status: this.statuses[0],
         rating: 0,
         isNew: true,
+        editMode: true,
       },
     ]);
   }
 
   save(feature: Feature) {
+    feature.statusId = feature.status.id;
     if (feature.isNew) {
-      this.taskService.postFeature(feature).subscribe((response) => {
-        feature.id = response.id;
-        feature.isNew = false;
-        this.toastr.success('Saved');
-      });
+      console.log(feature);
+
+      this.taskService.postFeature(feature).subscribe(
+        (response) => {
+          feature.id = response.id;
+          feature.isNew = false;
+          this.toastr.success('Saved');
+        },
+        (error) => {
+          console.log(error);
+          this.toastr.error('Failed');
+        }
+      );
     } else {
-      this.taskService.putFeature(feature).subscribe((response) => {
-        this.toastr.success('Saved');
-      });
+      this.taskService.putFeature(feature).subscribe(
+        (response) => {
+          this.toastr.success('Saved');
+        },
+        (error) => {
+          console.log(error);
+          this.toastr.error('Failed');
+        }
+      );
     }
   }
 
   remove(feature: Feature) {
     if (feature.id !== undefined) {
-      this.taskService.deleteFeature(feature.id).subscribe((response) => {
-        this.features.next(
-          this.features.value.filter((item) => item !== feature)
-        );
-        this.toastr.success('Done');
-      });
+      this.taskService.deleteFeature(feature.id).subscribe(
+        (response) => {
+          this.features.next(
+            this.features.value.filter((item) => item !== feature)
+          );
+          this.toastr.success('Done');
+        },
+        (error) => {
+          console.log(error);
+          this.toastr.error('Failed');
+        }
+      );
     } else {
       this.features.next(
         this.features.value.filter((item) => item !== feature)

@@ -1,8 +1,10 @@
 export interface PlanningModel {
   id?: number;
   status: Status;
+  statusId?: number;
   title: string;
   isNew?: boolean;
+  editMode?: boolean;
 }
 
 export interface Feature extends PlanningModel {

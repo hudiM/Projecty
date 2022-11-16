@@ -1,15 +1,23 @@
 <div class="flex flex-column">
   <div class="flex">
-    <div class="btn btn-icon btn-primary" (click)="addFeature()">
-      <div class="material-icons">add</div>
+    <div class="btn btn-small btn-primary" (click)="addFeature()">
+      <div class="material-icons mr-1">add</div>
+      Add new item
     </div>
   </div>
 
-  <feature
-    [feature]="feature"
-    [statuses]="statuses"
-    (deleted)="remove(feature)"
-    (saved)="save(feature)"
-    *ngFor="let feature of features | async">
-  </feature>
+  <div class="flex flex-column gap-3 mt-5">
+    <feature
+      [feature]="feature"
+      [statuses]="statuses"
+      (deleted)="remove(feature)"
+      (saved)="save(feature)"
+      *ngFor="let feature of features | async">
+    </feature>
+
+    <ng-container *ngIf="isLoading">
+      <skeleton *ngFor="let _ of [].constructor(3)" height="5rem"></skeleton>
+      <skeleton height="5rem"></skeleton>
+    </ng-container>
+  </div>
 </div>
